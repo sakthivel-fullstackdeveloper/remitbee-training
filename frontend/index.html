@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+          background-color: rgb(178, 233, 233);
+          display: flex;
+          align-items: center;
+          justify-content: center;  
+        }
+        .main{
+            border-radius: 10%;
+            padding:20px;
+            background-color: rgb(208, 102, 15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+           
+            gap: 5px;
+        }
+        button{
+            border-radius: 100px;
+            padding: 20px;
+        }
+        .symbol{
+            padding: 21px;
+        }
+        input{
+            padding:20px;
+            width:250px;
+            border-radius:100px;
+        }
+    </style>
+    
+</head>
+<body>
+   <div class="page"> <div class="main">
+        <div class="rows"><input type="number" id="num" value=""/></div>
+        <div class="rows">
+            <button class="symbol" onclick=add()>+</button>
+            <button class="symbol" onclick=sub()>-</button>
+            <button class="symbol" onclick=multi()>x</button>
+            <button class="symbol" onclick=divide()>/</button>
+        </div>
+        <div class="rows">
+            <button onclick="getValues('1')">1</button>
+            <button onclick="getValues('2')">2</button>
+            <button onclick="getValues('3')">3</button>
+            <button onclick="clearAll()">C</button>
+        </div>
+        <div class="rows">
+            <button onclick="getValues('4')">4</button>
+            <button onclick="getValues('5')">5</button>
+            <button onclick="getValues('6')">6</button>
+            <button onclick=proccess()>=</button>
+        </div>
+        <div class="rows">
+            <button onclick="getValues('7')">7</button>
+            <button onclick="getValues('8')">8</button>
+            <button onclick="getValues('9')">9</button>
+            <button onclick="getValues('0')">0</button>
+        </div>
+    </div>
+    </div>
+    <script>
+        let values = [];
+        let result=0;
+        let method = '';
+        let element = document.getElementById('num');
+        
+        const getValues = (num) =>{element.value+=num;}
+        
+        const clearAll = () =>{
+           console.log("called");
+            element.value='0';
+            values.length=0;
+            method='';
+            result=0;
+        }
+
+        const add = ()=>{
+            const valued = element.value;
+            if(valued.length != 0){
+              values.push(valued-0);
+              result = values.reduce((a,b)=>(a+b),0);
+              values.length=0; 
+              values.push(result);
+              method='add';
+              element.value = '';
+            }
+            else alert("please enter the number");
+        }
+
+        const sub = ()=>{
+            const valued = element.value;
+            if(valued.length != 0){
+              values.push(valued-0);
+              result = values.reduce((a,b)=>(a-b),0);
+              values.length=0; 
+              values.push(result);
+              method='sub';
+              element.value = '';
+            }
+            else alert("please enter the number");
+        }
+        
+        const multi = ()=>{
+            const valued = element.value;
+            values.length=1;
+            if(valued.length != 0){
+              values.push(valued-0);
+              result = values.reduce((a,b)=>(a*b),1);
+              values.length=0; 
+              values.pop()
+              console.log(values)
+              values.push(result);
+              method='multi';
+              element.value = '';
+            }
+            else alert("please enter the number");
+        }
+
+        const divide = ()=>{
+            const valued = element.value;
+            if(valued.length != 0){
+              values.push(valued-0);
+              console.log(values)
+              try{ result = values.reduce((a,b)=>(a/b),1); 
+                if(result=="Infinity"){
+                    throw new Error("Zero division error");
+                }
+              }
+              catch(error){alert(error.message)}
+              values.length=0; 
+              values.push(result);
+              method='divide';
+              element.value = '';
+            }
+            else alert("please enter the number");
+        }
+
+        const display=()=>{
+            element.value=result;
+            values.length=0; 
+        }
+        
+        const proccess =()=>{
+            const valued = element.value;
+            if(valued.length!=0 && method!=''){
+                switch(method){
+                    case 'sub':
+                        sub();
+                        display();
+                        break;
+                     case 'add':
+                        add();
+                        display();
+                        break;
+                     case 'multi':
+                        multi();
+                        display();
+                        break;
+                    case 'divide':
+                        divide();
+                        display();
+                        break;
+
+                }
+                element.value= result;
+            }
+            
+        }
+        
+    </script>
+    
+</body>
+</html>
