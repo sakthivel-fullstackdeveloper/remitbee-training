@@ -41,40 +41,52 @@
    <div class="page"> <div class="main">
         <div class="rows"><input type="number" id="num" value=""/></div>
         <div class="rows">
+            <button class="symbol" onclick=clearAll()>Ac</button>
+            <button class="symbol" onclick=clr()>C</button>
+            <button class="symbol" onclick=square()>x<sup>2</sup></button>
             <button class="symbol" onclick=add()>+</button>
-            <button class="symbol" onclick=sub()>-</button>
-            <button class="symbol" onclick=multi()>x</button>
-            <button class="symbol" onclick=divide()>/</button>
         </div>
         <div class="rows">
             <button onclick="getValues('1')">1</button>
             <button onclick="getValues('2')">2</button>
             <button onclick="getValues('3')">3</button>
-            <button onclick="clearAll()">C</button>
+            <button onclick="sub()">-</button>
         </div>
         <div class="rows">
             <button onclick="getValues('4')">4</button>
             <button onclick="getValues('5')">5</button>
             <button onclick="getValues('6')">6</button>
-            <button onclick=proccess()>=</button>
+            <button onclick=multi()>x</button>
         </div>
         <div class="rows">
             <button onclick="getValues('7')">7</button>
             <button onclick="getValues('8')">8</button>
             <button onclick="getValues('9')">9</button>
+            <button onclick="divide()">/</button>
+        </div>
+         <div class="rows">
+            <button onclick="mod()">%</button>
             <button onclick="getValues('0')">0</button>
+            <button onclick="sqrte()">√ x</button>
+            <button onclick=prcs()>=</button>
         </div>
     </div>
     </div>
+    <h1>history</h1>
+    <p id="msged">
+
+    </p>
     <script>
         let values = [];
         let result=0;
         let method = '';
         let element = document.getElementById('num');
+        let msg =[];
+        let data=""
         
         const getValues = (num) =>{element.value+=num;}
         
-        const clearAll = () =>{
+        const clr = () =>{
            console.log("called");
             element.value='0';
             values.length=0;
@@ -90,7 +102,9 @@
               values.length=0; 
               values.push(result);
               method='add';
+              data+= valued;
               element.value = '';
+              
             }
             else alert("please enter the number");
         }
@@ -103,6 +117,7 @@
               values.length=0; 
               values.push(result);
               method='sub';
+              data+= valued;
               element.value = '';
             }
             else alert("please enter the number");
@@ -119,6 +134,54 @@
               console.log(values)
               values.push(result);
               method='multi';
+              data+= valued;
+              element.value = '';
+            }
+            else alert("please enter the number");
+        }
+
+        const mod = ()=>{
+            const valued = element.value;
+            if(valued.length != 0){
+              values.push(valued-0);
+              console.log("Im in"+values)
+              result = values.reduce((a,b)=>a%b);
+              values.length=0; 
+              values.pop()
+              values.push(result);
+              method='mod';
+              data+= valued;
+              element.value = '';
+            }
+            else alert("please enter the number");
+        }
+
+        const square = ()=>{
+            const valued = element.value;
+            if(valued.length != 0){
+              result = valued**2;
+              values.length=0; 
+              values.pop();
+              console.log(result)
+              values.push(result);
+              method='sq';
+              console.log(method)
+              data+=valued;
+              element.value = '';
+            }
+            else alert("please enter the number");
+        }
+
+         const sqrte = ()=>{
+            const valued = element.value;
+            if(valued.length != 0){
+              result = Math.sqrt(valued);
+              values.length=0; 
+              values.pop();
+              console.log(result)
+              values.push(result);
+              method='sqrt';
+              console.log(method)
               element.value = '';
             }
             else alert("please enter the number");
@@ -128,7 +191,6 @@
             const valued = element.value;
             if(valued.length != 0){
               values.push(valued-0);
-              console.log(values)
               try{ result = values.reduce((a,b)=>(a/b),1); 
                 if(result=="Infinity"){
                     throw new Error("Zero division error");
@@ -138,6 +200,7 @@
               values.length=0; 
               values.push(result);
               method='divide';
+              data+= valued;
               element.value = '';
             }
             else alert("please enter the number");
@@ -145,36 +208,74 @@
 
         const display=()=>{
             element.value=result;
+            console.log("process start");
             values.length=0; 
         }
         
-        const proccess =()=>{
+        const prcs =()=>{
             const valued = element.value;
+            console.log(method);
             if(valued.length!=0 && method!=''){
                 switch(method){
-                    case 'sub':
-                        sub();
+                    case 'mod':
+                        data+='%'
+                        mod();
+                        data+="="+result;
                         display();
+                        msg.push(data);
+                        data=""
+                        console.log(msg);
+                        break;
+                    case 'sub':
+                        data+= "-";
+                        sub();
+                        data+="="+result;
+                        display();
+                        msg.push(data);
+                        data=""
                         break;
                      case 'add':
+                        data+= "+";
                         add();
+                        data+="="+result;
                         display();
+                        msg.push(data);
+                        data=""
+                        console.log(msg);
                         break;
                      case 'multi':
+                         data+= "x";
                         multi();
+                        data+="="+result;
                         display();
+                        msg.push(data);
+                        data=""
                         break;
                     case 'divide':
+                        data+= "/";
                         divide();
+                        data+="="+result;
                         display();
+                        msg.push(data);
+                        data=""
                         break;
-
                 }
                 element.value= result;
             }
-            
+            else if(method=='sq') {
+                data+="²"+"=";
+                display();
+                data+=result;
+                msg.push(data);
+                data='';
+                console.log(msg);
+            }
+            else if(method=='sqrt'){ display();
+         }
+
+         let ele= document.getElementById('msged').innerText=msg;
         }
-        
+    
     </script>
     
 </body>
