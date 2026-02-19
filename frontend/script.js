@@ -5,7 +5,7 @@ let element = document.getElementById('num');
 let ele = document.getElementById('msged');
 let msg = [];
 let data = ""
-
+// get values
 const getValues = (num) => { element.value += num; }
 
 const clearAll=()=>{
