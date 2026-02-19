@@ -1,0 +1,26 @@
+#items{
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    align-items: start;
+    height: 600px;
+    border-radius: 20px;
+    overflow-x: scroll;
+    background-color: rgb(241, 143, 143);
+}
+
+.main{
+   
+    display: flex;
+    flex-direction: column;
+}
+input{
+    height: 30px;
+    border-radius: 20px;
+}
+button{
+    padding:10px;
+    width: 100px;
+    border-radius:100px;
+}
+
