@@ -4,19 +4,19 @@ let element = document.getElementById('items');
 let titles=[]
 let n=0;
 let ele=0;
-const edit =(val)=>{
+const edit =(obj)=>{
 let e = document.getElementsByClassName("adder")[0];
 let updateBtn = document.getElementById('update');
 let editTitle = document.getElementById('editTitle');
 let editDescription =document.getElementById('editDescription');
-updateBtn.addEventListener('click',update(val));
-// editTitle.value=val.title;
-// editDescription.value=val.description;
+updateBtn.addEventListener('click',update(obj));
+editTitle.value=obj.title;
+editDescription.value=obj.description;
 e.innerHTML=''
-console.log(updateBtn,editDescription,editTitle);
+// console.log(obj);
 }
-const update =(val)=>{
-console.log(val);
+const update =(obj)=>{
+console.log(obj);
 }
 
 
@@ -31,8 +31,7 @@ const taskUpdater=()=>{
     <p>${e.id} .</p> 
     <h1>${e.title}</h1>
     <p>${e.description}</p>
-    <button onclick="edit(${{id:e.id,title:e.title,description:e.description}})">edit</button>
-    
+    <button onclick="edit({id:${e.id},title:'${e.title}',description:'${e.description}'})">edit</button>
     `
     element.appendChild(ele)
     }
