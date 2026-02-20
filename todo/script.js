@@ -21,13 +21,25 @@ editorBox.style="display:block;"
 
 const update =(id)=>{
 let filtered = datas.filter(n=>n.id!=id);
-filtered.push({id,title:editTitle.value,description:editDescription.value});
+filtered.push({id,title:editTitle.value,description:editDescription.value,status:"pending",clr:" rgb(225, 137, 50)"});
 datas=filtered;
 taskUpdater();
 adderBox.style="display:block;";
 editorBox.style="display:none;"
 }
 
+const deleted =(id)=>{
+    let filtered = datas.filter(n=>n.id!=id);
+    datas=filtered;
+    taskUpdater();
+}
+
+const completed=(obj)=>{
+let filtered = datas.filter(n=>n.id!=obj.id);
+filtered.push({id:obj.id,title:obj.title,description:obj.description,status:"completed",clr:"green"});
+datas=filtered;
+taskUpdater();
+}
 
 const taskUpdater=()=>{
     element.innerHTML='';
@@ -39,14 +51,19 @@ const taskUpdater=()=>{
     
     <p>${e.id} .</p> 
     <h1>${e.title}</h1>
-    <p>${e.description}</p>
-    <button onclick="edit({id:${e.id},title:'${e.title}',description:'${e.description}'})">edit</button>
+    <p>${e.title}</p>
+    <p style="background-color: ${e.clr};" id="status">${e.status}</p>
+    <div id="buttons${e.id}">
+    <button id="edit" onclick="edit({id:${e.id},title:'${e.title}',description:'${e.description}'})">edit</button>
+    <button id="delete" onclick="deleted(${e.id})">delete</button>
+    <button id="complete" onclick="completed({id:${e.id},title:'${e.title}',description:'${e.description}'})">complete</button>
+    </div>
     `
     element.appendChild(ele)
     }
 }
 const add =()=>{
-    datas.push({id:++n,title:title.value,description:description.value});
+    datas.push({id:++n,title:title.value,description:description.value,status:"pending",clr:" rgb(225, 137, 50)"});
     taskUpdater();
     title.value='';
     description.value='';
