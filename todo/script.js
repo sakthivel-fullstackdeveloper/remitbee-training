@@ -51,7 +51,7 @@ const taskUpdater=()=>{
     
     <p>${e.id} .</p> 
     <h1>${e.title}</h1>
-    <p>${e.title}</p>
+    <p>${e.description}</p>
     <p style="background-color: ${e.clr};" id="status">${e.status}</p>
     <div id="buttons${e.id}">
     <button id="edit" onclick="edit({id:${e.id},title:'${e.title}',description:'${e.description}'})">edit</button>
