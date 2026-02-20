@@ -10,6 +10,13 @@
     background-color: rgb(105, 10, 10);
 }
 
+.adder{
+      display:block;
+}
+
+.editer{
+      display:none;
+}
 .og{
     width: 100%;
     background: #000;
