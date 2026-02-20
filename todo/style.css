@@ -1,26 +1,65 @@
-#items{
+.boxed{
     display: flex;
     flex-direction: column;
     justify-items: start;
     align-items: start;
     height: 600px;
+    width: 100%;
     border-radius: 20px;
     overflow-x: scroll;
-    background-color: rgb(241, 143, 143);
+    background-color: rgb(105, 10, 10);
+}
+
+.adder{
+      display:block;
+}
+
+.editer{
+      display:none;
+}
+.og{
+    width: 100%;
+}
+
+#item{
+    display: flex; 
+    width: 500px;
+    gap:10px; 
+    justify-content: start; 
+    align-items: center; 
+    flex-direction: row; 
+    background-color: rgb(237, 247, 247);
+    margin-bottom:10px ;
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .main{
-   
+   background-color: brown;
     display: flex;
     flex-direction: column;
+    padding:20px;
+    border-radius: 20px;
 }
 input{
+    margin-bottom: 10px;
+    width: 60%;
+    padding: 10px;
     height: 30px;
     border-radius: 20px;
+}
+textarea{
+    width: 60%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 button{
     padding:10px;
     width: 100px;
     border-radius:100px;
 }
+
+
+
 
