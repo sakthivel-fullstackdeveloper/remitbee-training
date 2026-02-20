@@ -8,13 +8,24 @@
 </head>
 <body>
    <div class="main">
+   
+   <div class="og adder">
     <input type="text" id="title" placeholder="Tittle"/> <br>
     <textarea name="area" placeholder="description" id="description"></textarea> <br>
     <div><button type="button" onclick="add()">add</button></div>
-    <h1>task lists</h1>   
-    <ul id="items"> 
-    </ul> 
+   </div>
+
+      <div class="og editer">
+    <input type="text" id="editTitle" placeholder="Tittle"/> <br>
+    <textarea name="area" placeholder="Description" id="editDescription"></textarea> <br>
+    <div><button type="button" id="update">update</button></div>
+   </div>
    
+    <h1>Task list</h1>   
+    <div class="boxed">
+    <ul id="items"> </ul> 
+    </div>
+    
    </div>
     <script src="./script.js"></script>
 </body>

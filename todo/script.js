@@ -4,17 +4,42 @@ let element = document.getElementById('items');
 let titles=[]
 let n=0;
 let ele=0;
-const add =()=>{
-    titles.push({id:++n,title:title.value,description:description.value});
+const edit =(val)=>{
+let e = document.getElementsByClassName("adder")[0];
+let updateBtn = document.getElementById('update');
+let editTitle = document.getElementById('editTitle');
+let editDescription =document.getElementById('editDescription');
+updateBtn.addEventListener('click',update(val));
+// editTitle.value=val.title;
+// editDescription.value=val.description;
+e.innerHTML=''
+console.log(updateBtn,editDescription,editTitle);
+}
+const update =(val)=>{
+console.log(val);
+}
+
+
+const taskUpdater=()=>{
     element.innerHTML='';
     for(let e of titles)
     {
     ele= document.createElement('div');
     ele.id='item';
-    ele.style=" display: flex; gap:10px; justify-content: center; align-items: center; flex-direction: row; ";
-    ele.innerHTML=`<p>${e.id} .</p> <h1>${e.title}</h1><p>${e.description}</p>`
+    ele.innerHTML=`
+    
+    <p>${e.id} .</p> 
+    <h1>${e.title}</h1>
+    <p>${e.description}</p>
+    <button onclick="edit(${{id:e.id,title:e.title,description:e.description}})">edit</button>
+    
+    `
     element.appendChild(ele)
     }
+}
+const add =()=>{
+    titles.push({id:++n,title:title.value,description:description.value});
+    taskUpdater();
     title.value='';
     description.value='';
     
