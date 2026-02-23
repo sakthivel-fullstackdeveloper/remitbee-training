@@ -31,8 +31,7 @@ The designs were created to the following widths:
 
 - Font size (paragraph): 16px 
 
-### Font
-
+### Fon
 - Family: [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans)
 - Weights: 500, 700
 
