@@ -1,4 +1,9 @@
-section.temp{
+:root {
+    --onclick-box: hsl(61, 70%, 52%);
+    --offclick-box: #e4f4fd;
+}
+
+section.temp {
     background-color: red;
     width: 100%;
     height: 100%;
@@ -7,32 +12,81 @@ section.temp{
     align-items: center;
     flex-direction: column;
 }
-.container{
- background: #dbd712;   
- width: 80%;
- height: 100%;
- display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column
+
+.container {
+    background: #dbd712;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
 }
-.box{
-    background-color: #12db19;
+
+.box {
+    background-color: #ffffff;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     border: 1px solid blue;
 }
 
+.arranger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
 
+.arranger2 {
+    justify-content: space-between;
+}
+
+
+#rupe,#rupe2,#rupe3 {
+    width: 100%;
+    border: 1px solid var(--offclick-box);
+    outline: none;
+    font-size: 30px;
+    padding: 3px;
+}
+
+#ico,#ico2,#ico3 {
+    font-size: 30px;
+    padding: 1px;
+    background-color: var(--offclick-box);
+    border-radius: 2px 0 0 2px;
+    border: 0px solid var(--offclick-box);
+}
+
+#ico2,#ico3 {
+    padding: 4px;
+}
+#ico2{
+     margin-right: 5px;
+}
+
+input#rupe:focus,input#rupe2:focus,input#rupe3:focus {
+    border: 1px solid var(--onclick-box) !important;
+    outline: none;
+}
+
+.box.second {
+    background-color: #133040;
+    color: white;
+    height: 100%;
+}
 
 @media (min-width:768px) {
-    .container{
+    .container {
         flex-direction: row;
     }
-    .box{
+
+    .box {
         width: 50%;
+
     }
-    
+
 }
