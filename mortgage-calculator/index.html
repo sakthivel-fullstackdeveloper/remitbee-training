@@ -6,42 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mortgage calculator</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./custom.css">
 </head>
 
-<body>
-    <section class="temp">
-        <div class="container">
+<body class="flex-box">
 
-            <div class="box">
-                <div class="wrapper">
-                    <p>Mortage Amount</p>
-                <div class="arranger">
-                    <p id="ico">&#8377;</p>
-                    <input type="number" name="rupess" id="rupe" min="0" />
-                </div>
-                
-                </div>
-                
+    <div class="container flex-box">
 
-                <div class="arranger arranger2">
-                    
-                    <input type="years" name="rupess" id="rupe2" min="0" />
-                    <p id="ico2">years</p>
-
-                    <input type="number" name="rupess" id="rupe3" min="0" />
-                    <p id="ico3">%</p>
-
+        <div class="box flex-box column ">
+            <div class="wrapper">
+                <div class="flex-start column">
+                    <p>Mortgage amount</p>
+                    <div class="arranger flex-box">
+                        <p id="ico">&#8377;</p>
+                        <input type="number" name="rupess" id="rupe" min="0" />
+                    </div>
                 </div>
 
-            </div>
-            <div class="box second">
-                <div class="arranger">element <div>
+                <div class="flex-box">
+                    <div class="flex-start column">
+                        <p>Mortgage Term</p>
+                        <div class="arranger flex-box">
+                            <input type="years" name="rupess" id="rupe2" min="0" />
+                            <p id="ico2">years</p>
+                        </div>
+                    </div>
+                    <div class="flex-start column">
+                        <p>Mortgage Interest</p>
+                        <div class="arranger flex-box">
+                            <input type="number" name="rupess" id="rupe3" min="0" />
+                            <p id="ico3">%</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex-box">
+                    <div class="flex-start column">
+                        <p>Mortgage Type</p>
+                        <form>
+                            <div class="arranger flex-box third column">
+                                <div class="flex-box inputs">
+                                    <input type="radio" name="mortgageType" id="interest" value="Interest">
+                                    <label for="interest">Interest</label>
+                                </div>
+                                <br>
+                                <div class="flex-box inputs">
+                                    <input type="radio" name="mortgageType" id="repayment" value="Repayment">
+                                    <label for="repayment">Repayment</label>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
             </div>
-    </section>
+
+
+
+        </div>
+
+        <div class="box second flex-box">
+            <div class="arranger">element </div>
+        </div>
+
+
+
+
+    </div>
+
     <script src="./script.js"></script>
+
 </body>
 
 </html>
