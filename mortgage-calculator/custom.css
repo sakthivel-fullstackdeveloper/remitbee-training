@@ -1,0 +1,33 @@
+.flex-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-start{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+
+}
+.column{
+    flex-direction: column;
+}
+
+.wrapper{
+    width: 80%;
+}
+
+
+.third{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.inputs{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    background-color: rgba(255, 0, 0, 0.653);
+}
