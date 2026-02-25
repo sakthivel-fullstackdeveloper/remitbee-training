@@ -1,33 +1,33 @@
-.flex-box{
+.flex {
+    display: flex;
+}
+
+.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.flex-start{
-    display: flex;
-    justify-content: start;
-    align-items: start;
 
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
-.column{
+
+.column {
     flex-direction: column;
 }
 
-.wrapper{
+.w-100 {
+    width: 100%;
+}
+
+
+.w-60 {
+    width: 60%;
+}
+
+.w-80 {
     width: 80%;
 }
 
-
-.third{
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-}
-.inputs{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    width: 100%;
-    font-size: 20px;
-    background-color: rgba(255, 0, 0, 0.653);
-}

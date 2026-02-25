@@ -4,79 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mortgage calculator</title>
+    <title>Mortgage Calculator</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./custom.css">
 </head>
 
-<body class="flex-box">
+<body class="flex-center">
 
-    <div class="container flex-box">
+    <div class="container flex column w-80">
 
-        <div class="box flex-box column ">
-            <div class="wrapper">
-                <div class="flex-start column">
-                    <p>Mortgage amount</p>
-                    <div class="arranger flex-box">
+        <div class="box flex-center w-100">
+            <div class="wrapper w-80 ">
+
+                <div class="flex-start column w-100">
+                    <p>Mortgage Amount</p>
+                    <div class="arranger flex w-100">
                         <p id="ico">&#8377;</p>
-                        <input type="number" name="rupess" id="rupe" min="0" />
+                        <input type="number" name="amount" id="rupe" min="0">
                     </div>
                 </div>
 
-                <div class="flex-box">
-                    <div class="flex-start column">
+                <div class="flex boxed2 column w-100">
+
+                    <div class="flex-start column w-100">
                         <p>Mortgage Term</p>
-                        <div class="arranger flex-box">
-                            <input type="years" name="rupess" id="rupe2" min="0" />
+                        <div class="arranger flex w-100">
+                            <input type="number" name="term" id="rupe2" min="0">
                             <p id="ico2">years</p>
                         </div>
                     </div>
-                    <div class="flex-start column">
+
+                    <div class="flex-start column w-100">
                         <p>Mortgage Interest</p>
-                        <div class="arranger flex-box">
-                            <input type="number" name="rupess" id="rupe3" min="0" />
+                        <div class="arranger flex w-100">
+                            <input type="number" name="interest" id="rupe3" min="0">
                             <p id="ico3">%</p>
                         </div>
                     </div>
 
                 </div>
 
-                <div class="flex-box">
-                    <div class="flex-start column">
-                        <p>Mortgage Type</p>
-                        <form>
-                            <div class="arranger flex-box third column">
-                                <div class="flex-box inputs">
-                                    <input type="radio" name="mortgageType" id="interest" value="Interest">
-                                    <label for="interest">Interest</label>
-                                </div>
-                                <br>
-                                <div class="flex-box inputs">
-                                    <input type="radio" name="mortgageType" id="repayment" value="Repayment">
-                                    <label for="repayment">Repayment</label>
-                                </div>
+                <div class="flex-start column w-100">
+                    <p>Mortgage Type</p>
+
+                    <form class="w-100">
+                        <div class="arranger inputs column w-100">
+
+                            <div class="w-100 interest">
+                                <input type="radio" name="mortgageType" id="interest" onclick="turnInterest()">
+                                <label for="interest">Interest</label>
                             </div>
-                        </form>
-                    </div>
+
+                            <div class="w-100 repayment">
+                                <input type="radio" name="mortgageType" id="repayment" onclick="turnRepayment()">
+                                <label for="repayment">Repayment</label>
+                            </div>
+
+                        </div>
+                    </form>
+
                 </div>
 
             </div>
-
-
-
         </div>
 
-        <div class="box second flex-box">
-            <div class="arranger">element </div>
+        <div class="box second flex-center w-100">
+            <div class="arranger w-100">
+                element
+            </div>
         </div>
-
-
-
-
     </div>
-
     <script src="./script.js"></script>
-
-</body>
+  </body>
 
 </html>
