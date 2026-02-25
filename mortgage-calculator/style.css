@@ -19,13 +19,15 @@ body {
 }
 
 .container {
-    background: #dbd712;
+    background: #ffffff;
     border-radius: 10px;
 }
 
 .box {
     background-color: #ffffff;
-
+}
+.first{
+    border-radius: 10px 0 0 10px ;
 }
 
 .arranger {
@@ -39,6 +41,7 @@ body {
 }
 
 .interest , .repayment{
+    width: 100%;
     border: 1px solid #01304c;
     background-color: #e4f4fd;
     margin: 5px;
@@ -48,7 +51,7 @@ body {
 
 
 #rupe,#rupe2,#rupe3 {
-    flex: 1;                    
+    flex: 1;                
     padding: 10px 12px;  
     border: none;       
     border-top: 1px solid var(--border-clr);
@@ -62,6 +65,15 @@ body {
     border-left: none;
     border-right: 1px solid var(--border-clr);
     border-radius: 0 10px 10px 0 !important;
+}
+
+.submit{
+    width: 50%;
+    background-color: #dbd712;
+    color: #01304c;
+    border-radius: 10px;
+    border: 1px solid #01304c;
+    margin:15px ;
 }
 
 #ico,#ico2,#ico3 {
@@ -91,6 +103,7 @@ body {
 .box.second {
     background-color: #133040;
     color: white;
+    border-radius: 0 10px 10px 50px;
     
 }
 
