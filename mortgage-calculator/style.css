@@ -5,7 +5,9 @@
 
 *{
     font-family: "myfont";
+    font-weight: 700;
     color:  #01304c;
+    font-size: 15px;
    
 }
 :root {
@@ -15,16 +17,26 @@
 }
 
 body {
+    height: 100vh;
     background-color: hsl(202, 86%, 94%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     background: #ffffff;
     border-radius: 10px;
+  
 }
 
 .box {
     background-color: #ffffff;
+}
+
+.heading{
+    justify-content: space-between;
+    align-items: center;
 }
 .first{
     border-radius: 10px 0 0 10px ;
@@ -45,7 +57,6 @@ body {
     border: 1px solid #01304c;
     background-color: #e4f4fd;
     margin: 5px;
-    border-radius: 10px;
     padding: 5px 0px;
 }
 
@@ -107,9 +118,24 @@ body {
     
 }
 
+.res{
+        width: 100% !important;
+        font-size: 13px;
+        font-weight: 700;
+        color: #73a1bc;
+    }
+
+    .clear{
+         font-size: 13px;
+        font-weight: 700;
+        color: #73a1bc;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px dashed #73a1bc;
+    }
 
 /* responsive mobile view */
-@media (min-width: 760px) {
+@media (min-width: 880px) {
     .container {
         display: flex;
         flex-direction: row !important;
@@ -132,3 +158,6 @@ body {
         margin-right: 10px;
     }
 }
+
+
+

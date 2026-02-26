@@ -11,33 +11,37 @@
 
 <body class="flex-center">
 
-    <div class="container flex column w-80">
+    <div class="container flex column w-60">
 
         <div class="box first flex-center w-100">
             <div class="wrapper w-80 ">
+                <div class="flex heading w-100">
+                    <p>Mortgage Calculator</p>
+                    <button class="clear" onclick="clearAll()">clear All</button>
+                </div>
 
-                <div class="flex-start column w-100">
-                    <p>Mortgage Amount</p>
+                <div class="flex-start column  w-100">
+                    <p class="res">Mortgage Amount</p>
                     <div class="arranger flex w-100">
                         <p id="ico">&#8377;</p>
-                        <input type="number" name="amount" id="rupe" min="0">
+                        <input type="number" name="amount" class="w-100" id="rupe" min="0">
                     </div>
                 </div>
 
                 <div class="flex boxed2 column w-100">
 
                     <div class="flex-start column w-100">
-                        <p>Mortgage Term</p>
+                        <p class="w-60 res" >Mortgage Term</p>
                         <div class="arranger flex w-100">
-                            <input type="number" name="term" id="rupe2" min="0">
+                            <input type="number" name="term" class="w-100" id="rupe2" min="0">
                             <p id="ico2">years</p>
                         </div>
                     </div>
 
                     <div class="flex-start column w-100">
-                        <p>Mortgage Interest</p>
+                        <p class="w-60 res" >Interest Rate</p>
                         <div class="arranger flex w-100">
-                            <input type="number" name="interest" id="rupe3" min="0">
+                            <input type="number" name="interest" class="w-100"  id="rupe3" min="0">
                             <p id="ico3">%</p>
                         </div>
                     </div>
@@ -45,7 +49,7 @@
                 </div>
 
                 <div class="flex-start column w-100">
-                    <p>Mortgage Type</p>
+                    <p class="res">Mortgage Type</p>
 
                     <form class="w-100">
                         <div class="arranger inputs column w-100">
@@ -74,11 +78,27 @@
             </div>
         </div>
 
-        <div class="box second flex-center w-100">
-            <div class="arranger w-100">
-                
+        <!-- <div class="box second  flex-center w-100">
+            <div class="arranger flex column  w-100">
+                <img src="./assets/images/bgHero.svg" alt="img">
+                <h1 style="color: azure;">Result shown here</h1>
+                <p style="text-align: center;" class=" flex w-100 res">
+                    complete the form and click "Calculate repayments" to see what your monthly repayments would be 
+                </p>
+            </div>
+        </div> -->
+
+        <div class="box second  flex-center w-100">
+            <div class="arranger flex column  w-100">
+    
+                <h1 style="color: azure;">Result shown here</h1>
+                <p style="text-align: center;" class=" flex w-100 res">
+                    Your results are shown below based on the information you provided. to adjust the results, edit the form and click "calculate repayments" again.
+                </p>
+               <div></div>
             </div>
         </div>
+
     </div>
     <script src="./script.js"></script>
   </body>

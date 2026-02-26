@@ -25,7 +25,7 @@ const turnInterest=()=>{
 
 const turnRepayment = ()=>{
     radioInterestElement.style=`
-     border: 1px solid #01304c;
+    border: 1px solid #01304c;
     background-color: #e4f4fd;`;
     radioRepaymentElement.style=`
     border: 1px solid ${borderClrOn};
@@ -53,6 +53,22 @@ else{
 amountInput.value=NaN;
 yearsInput.value=NaN;
 InterestInput.value=NaN;
+
+}
+
+const clearAll=()=>{
+amountInput.value=NaN;
+yearsInput.value=NaN;
+InterestInput.value=NaN;
+radioInterestElement.style=`
+    border: 1px solid #01304c;
+    background-color: #e4f4fd;`;
+radioRepaymentElement.style=`
+    border: 1px solid #01304c;
+    background-color: #e4f4fd;`;
+document.getElementById('interest').checked=false;
+document.getElementById('repayment').checked=false;
+radioValues="";
 
 }
 
