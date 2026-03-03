@@ -1,0 +1,84 @@
+.board {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: 40px;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  border: 4px solid black;
+}
+.board .cell {
+  border: 1px solid rgb(182, 182, 182);
+}
+.board .four {
+  position: absolute;
+  top: 240px;
+  left: 240px;
+  width: 0;
+  height: 0;
+  border-top: 60px solid green;
+  border-bottom: 60px solid blue;
+  border-left: 60px solid red;
+  border-right: 60px solid yellow;
+}
+.board .shade {
+  position: absolute;
+  grid-column: 1;
+  grid-row: 8;
+  background-color: black;
+}
+
+div.container {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+div.container .box {
+  display: flex;
+  justify-content: space-around;
+}
+div.container .box .round {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+div.container.red {
+  top: 40px;
+  left: 40px;
+  background-color: white;
+}
+div.container.red .box .round {
+  background-color: red;
+}
+
+div.container.blue {
+  bottom: 40px;
+  left: 40px;
+  background-color: white;
+}
+div.container.blue .box .round {
+  background-color: blue;
+}
+
+div.container.green {
+  top: 40px;
+  right: 40px;
+  background-color: white;
+}
+div.container.green .box .round {
+  background-color: green;
+}
+
+div.container.yellow {
+  bottom: 40px;
+  right: 40px;
+  background-color: white;
+}
+div.container.yellow .box .round {
+  background-color: yellow;
+}/*# sourceMappingURL=style.css.map */
