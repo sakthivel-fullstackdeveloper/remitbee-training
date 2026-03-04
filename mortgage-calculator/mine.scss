@@ -21,11 +21,14 @@ $offclick-box: #e4f4fd;
   font-size: 15px;
 }
 
-body {
-  background-color: $bg-light;
+@mixin flex{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+body {
+  background-color: $bg-light;
+  @include flex;
 }
 
 .container {
