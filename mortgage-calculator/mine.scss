@@ -1,0 +1,221 @@
+@font-face {
+  font-family: "myfont";
+  src: url('./assets/fonts/PlusJakartaSans-VariableFont_wght.ttf');
+}
+
+$primary-clr: #01304c;
+$bg-light: hsl(202, 86%, 94%);
+$white: #ffffff;
+$yellow: #dbd712;
+$dark-blue: #133040;
+$deep-blue: #011d2d;
+$text-light: #73a1bc;
+$onclick-box: hsl(61, 70%, 52%);
+$offclick-box: #e4f4fd;
+
+* {
+  box-sizing: border-box;
+  font-family: "myfont";
+  font-weight: 700;
+  color: $primary-clr;
+  font-size: 15px;
+}
+
+@mixin flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background-color: $bg-light;
+  @include flex;
+}
+
+.container {
+  background: $white;
+  border-radius: 0 10px 10px 50px;
+
+  .box {
+    background-color: $white;
+    width: 100%;
+
+    &.second {
+      padding-bottom: 30px;
+      background-color: $dark-blue;
+      color: white;
+      border-radius: 0 10px 10px 50px;
+
+      .res {
+        margin: 0;
+        width: 100%;
+        font-size: 13px;
+        color: $text-light;
+      }
+
+      .clear {
+        width: 30%;
+        font-size: 13px;
+        color: $text-light;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px dashed $text-light;
+      }
+
+      .result {
+        margin-top: 20px;
+        background-color: $deep-blue;
+        border-radius: 7px;
+        padding: 5px;
+        border-top: 1px solid $yellow;
+
+        > div {
+          p {
+            font-size: 12px;
+            color: $text-light;
+          }
+
+          h1 {
+            border-bottom: 1px solid $text-light;
+            margin: 0;
+            font-size: 40px;
+            padding-bottom: 15px;
+            color: $yellow;
+          }
+
+          h2 {
+            color: white;
+            padding-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.first {
+  border-radius: 10px 0 0 10px;
+}
+
+.arranger {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.inputs {
+  font-size: 15px;
+}
+
+.interest,
+.repayment {
+  width: 100%;
+  border: 1px solid $primary-clr;
+  background-color: $offclick-box;
+  margin: 5px;
+  padding: 5px 0;
+}
+
+#rupe,
+#rupe2,
+#rupe3 {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  border-top: 1px solid $primary-clr;
+  border-bottom: 1px solid $primary-clr;
+  border-left: 1px solid $primary-clr;
+  outline: none;
+  font-size: 16px;
+  border-radius: 10px 0 0 10px;
+
+  &:focus {
+    border: 1px solid $onclick-box;
+  }
+}
+
+#rupe {
+  border-left: none;
+  border-right: 1px solid $primary-clr;
+  border-radius: 0 10px 10px 0 !important;
+}
+
+#ico,
+#ico2,
+#ico3 {
+  padding: 9px 12px;
+  background-color: $offclick-box;
+  font-size: 18px;
+  border-top: 1px solid $primary-clr;
+  border-bottom: 1px solid $primary-clr;
+  border-right: 1px solid $primary-clr;
+  border-radius: 0 10px 10px 0;
+}
+
+#ico {
+  border-right: none;
+  border-left: 1px solid $primary-clr;
+  border-radius: 10px 0 0 10px !important;
+}
+
+.submit {
+  width: 50%;
+  background-color: $yellow;
+  color: $primary-clr;
+  border-radius: 10px;
+  border: 1px solid $primary-clr;
+  margin: 20px 0;
+}
+
+.show {
+  background-color: aquamarine;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (min-width: 880px) {
+  .container {
+    display: flex;
+    flex-direction: row !important;
+  }
+
+  .boxed {
+    display: flex;
+    flex-direction: column !important;
+  }
+
+  .boxed2 {
+    display: flex;
+    flex-direction: row !important;
+  }
+
+  .box {
+    width: 50%;
+  }
+
+  #ico2 {
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 700px) {
+  .container {
+    width: 90% !important;
+    border-radius: 0;
+  }
+
+  .box.second {
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  .submit {
+    width: 70% !important;
+  }
+}
