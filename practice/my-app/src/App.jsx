@@ -1,15 +1,11 @@
-import Counter from "./pages/Counter";
-import ItemPage from "./pages/ItemPage";
-import ItemView from "./pages/ItemView";
+import Routed from "./routes/Routed";
 
 function App() {
 
   return (
     
     <>
-    <Counter/>
-    <ItemPage />
-    <ItemView />
+     <Routed/>
     </>
   );
 }
