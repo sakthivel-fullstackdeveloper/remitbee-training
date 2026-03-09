@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 const ItemView = () => {
     const data = useSelector((state) => state.items.value);
