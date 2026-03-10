@@ -1,9 +1,9 @@
 import Routed from "./routes/Routed";
+import './App.css'
 
 function App() {
 
-  return (
-    
+  return (  
     <>
      <Routed/>
     </>

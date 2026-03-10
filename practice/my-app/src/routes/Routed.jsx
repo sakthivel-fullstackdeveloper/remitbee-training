@@ -1,16 +1,19 @@
-import {BrowserRouter,Route,Routes} from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Counter from '../pages/Counter';
 import Items from '../pages/Items';
-const Routed =()=>{
-    return(
-    <>
-    <BrowserRouter>
-    <Routes>
-        <Route  element={<Counter/>} path='/counter' />
-        <Route element={<Items/>} path='/lister'/>
-        <Route element={<h1>hi home page</h1>} path='/' />
-    </Routes>
-    </BrowserRouter>
-    </>);
+import Login from '../pages/Login';
+
+const Routed = () => {
+    const user = !!localStorage.getItem("user") && !!localStorage.getItem("logged");
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/counter" element={user ? <Counter /> : <Navigate to="/login" />} />
+                <Route path="/item" element={user ? <Items /> : <Navigate to="/login" />} />
+                <Route path="/login" element={<Login/>} />
+                <Route path="/logout" element={()=>{localStorage.setItem("logged","")}} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 export default Routed;
