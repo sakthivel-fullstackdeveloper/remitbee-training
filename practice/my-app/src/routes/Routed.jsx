@@ -3,7 +3,9 @@ import Counter from '../pages/Counter';
 import Items from '../pages/Items';
 import Login from '../pages/Login';
 
+
 const Routed = () => {
+    
     const user = !!localStorage.getItem("user") && !!localStorage.getItem("logged");
     return (
         <BrowserRouter>

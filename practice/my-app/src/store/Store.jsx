@@ -4,10 +4,10 @@ import ItemReducer from "../slice/ItemsSlice";
 
 const Store = configureStore({
   reducer: {
-    counter:CounterReducer,
+   counter:CounterReducer,
    items:ItemReducer
-    
-  }
+  },
+  devTools:true,
 });
 
 export default Store;

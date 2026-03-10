@@ -1,12 +1,14 @@
-import  { ErrorMessage,Formik,Form,Field } from 'formik';
+import { ErrorMessage, Formik, Form, Field } from 'formik';
 import * as yup from 'yup';
+import { ToastContainer, toast ,Bounce} from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const validationShcema = yup.object({
     email:
       yup.string()
-         .email("invalid email")
-         .required("Email is required"),
+        .email("invalid email")
+        .required("Email is required"),
     password:
       yup.string()
         .required("password is required")
@@ -16,20 +18,59 @@ const Login = () => {
         .matches(/[!@#~$&]/, "must Include at least 1 symbol")
         .min(6, "must have atleast of 6 characters")
   });
-
+   const navigate = useNavigate();
   const initialStated = { email: "", password: "" };
-  const Users = {"sakthivel2004it@gmail.com":"Sakthi@123"};
- 
+  const Users = { "sakthivel2004it@gmail.com": "Sakthi@123" };
 
-  const handleSubmit = (values) => { 
+
+  const handleSubmit = (values) => {
     localStorage.removeItem("user");
     localStorage.removeItem("logged");
-    localStorage.setItem("data","");
+    localStorage.setItem("data", "");
     const user = Users[values.email];
-    if(!user) return alert("user not signedin");
-    if(user!==values.password) return alert("invalid password");
-    localStorage.setItem("user",values.email);
-    localStorage.setItem("logged",true);
+
+    if (!user){
+      toast.error('user not signedin', {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    }); return; }
+
+    if (user !== values.password) {
+      toast.error('invalid password', {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    }); return;}
+
+    localStorage.setItem("user", values.email);
+    localStorage.setItem("logged", true);
+
+    toast.success('logged succesfully', {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      onClose: () => navigate("/item")
+    });
+
   }
   return (
     <>
@@ -50,10 +91,10 @@ const Login = () => {
                 <div className="mt-2">
                   <Field
                     name="email"
-                    className="block w-full rounded-md bg-gray-300 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                    className="block w-full  rounded-md bg-gray-200 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                   />
                 </div>
-                <ErrorMessage name='email'/>
+                <ErrorMessage component={'p'} className='text-red-500 text-sm' name='email' />
               </div>
 
               <div>
@@ -68,10 +109,10 @@ const Login = () => {
                 <div className="mt-2">
                   <Field
                     name="password"
-                    className="block w-full rounded-md bg-gray-300 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                    className="block w-full rounded-md bg-gray-100 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                   />
                 </div>
-                <ErrorMessage name='password'/>
+                <ErrorMessage component={'p'} className='text-red-500 text-sm' name='password' />
               </div>
 
               <div>
@@ -85,6 +126,19 @@ const Login = () => {
           </Formik>
 
         </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+        />
       </div>
     </>);
 }
