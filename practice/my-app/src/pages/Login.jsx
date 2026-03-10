@@ -1,6 +1,6 @@
 import { ErrorMessage, Formik, Form, Field } from 'formik';
 import * as yup from 'yup';
-import { ToastContainer, toast ,Bounce} from 'react-toastify';
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -18,7 +18,7 @@ const Login = () => {
         .matches(/[!@#~$&]/, "must Include at least 1 symbol")
         .min(6, "must have atleast of 6 characters")
   });
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const initialStated = { email: "", password: "" };
   const Users = { "sakthivel2004it@gmail.com": "Sakthi@123" };
 
@@ -29,31 +29,33 @@ const Login = () => {
     localStorage.setItem("data", "");
     const user = Users[values.email];
 
-    if (!user){
+    if (!user) {
       toast.error('user not signedin', {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-    }); return; }
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      }); return;
+    }
 
     if (user !== values.password) {
       toast.error('invalid password', {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-    }); return;}
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      }); return;
+    }
 
     localStorage.setItem("user", values.email);
     localStorage.setItem("logged", true);
@@ -70,6 +72,9 @@ const Login = () => {
       transition: Bounce,
       onClose: () => navigate("/item")
     });
+    setTimeout(() => {
+      navigate("/item");
+    }, 3000);
 
   }
   return (
