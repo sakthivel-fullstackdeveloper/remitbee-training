@@ -22,7 +22,6 @@ const Login = () => {
   const initialStated = { email: "", password: "" };
   const Users = { "sakthivel2004it@gmail.com": "Sakthi@123" };
 
-
   const handleSubmit = (values) => {
     localStorage.removeItem("user");
     localStorage.removeItem("logged");
