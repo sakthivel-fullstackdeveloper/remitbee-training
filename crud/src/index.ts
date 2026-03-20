@@ -1,18 +1,26 @@
-import express, { Request, Response } from "express";
-import sequelize from "./config/database";
+require('dotenv').config();
+import express from "express";
+import userRoutes from "./routes/user.routes";
+import { sequelize } from "./models";
+import { logger } from "./utils/logger.utils";
+
 const app = express();
-const PORT = 3000;
-
-sequelize.authenticate()
-  .then(() => console.log("DB Connected"))
-  .catch(err => console.log(err));
-
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello world");
-});
+app.use("/api/users", userRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const start = async () => {
+  try {
+    await sequelize.authenticate();
+   logger.info("db connected");
+
+    app.listen(process.env.PORT, () => {
+     logger.info("Server running on port 3000");
+    });
+  } catch (error:any
+  ) {
+    logger.error(error.message());
+  }
+};
+
+start();
